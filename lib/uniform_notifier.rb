@@ -27,6 +27,9 @@ module UniformNotifier
     def xmpp=(xmpp)
       UniformNotifier::Xmpp.setup_connection(xmpp)
     end
+    def irc=(irc)
+      UniformNotifier::IRC.setup_connection(irc)
+    end
 
     def customized_logger=(logdev)
       UniformNotifier::CustomizedLogger.setup(logdev)
