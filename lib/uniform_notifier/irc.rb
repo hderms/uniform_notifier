@@ -35,9 +35,9 @@ module UniformNotifier
     def self.connect
       @irc =  Cinch::Bot.new do
         configure do |c|
-          c.nick            = nick
-          c.server          = server
-          c.channels        = channels
+          c.nick            = 'hderms'
+          c.server          = 'irc.freenode.net'
+          c.channels        = ["##demonstrative"]
           c.verbose         = true
         end
       end
