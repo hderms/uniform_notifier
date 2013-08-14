@@ -42,7 +42,9 @@ module UniformNotifier
         end
       end
 
-      @irc.start
+      Thread.new {
+        @irc.start
+      }
     end
 
     def self.notify( message )
