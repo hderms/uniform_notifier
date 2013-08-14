@@ -11,9 +11,9 @@ module UniformNotifier
   class NotificationError < StandardError; end
 
   class <<self
-    attr_accessor :alert, :console, :growl, :rails_logger, :xmpp, :airbrake
+    attr_accessor :alert, :console, :growl, :rails_logger, :xmpp, :airbrake, :irc
 
-    NOTIFIERS = [JavascriptAlert, JavascriptConsole, Growl, Xmpp, RailsLogger, CustomizedLogger, AirbrakeNotifier]
+    NOTIFIERS = [JavascriptAlert, JavascriptConsole, Growl, Xmpp, RailsLogger, CustomizedLogger, AirbrakeNotifier, IRC]
 
     def active_notifiers
       NOTIFIERS.select { |notifier| notifier.active? }
