@@ -34,10 +34,10 @@ module UniformNotifier
     private
     def self.connect
       @irc =  Cinch::Bot.new
-      @irc.nick            = @nick
-      @irc.server          = @server
-      @irc.channels        = @channels
-      @irc.verbose         = false
+      @irc.configure.nick            = @nick
+      @irc.configure.server          = @server
+      @irc.configure.channels        = @channels
+      @irc.configure.verbose         = false
 
       Thread.new {
         @irc.start
