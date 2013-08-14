@@ -1,4 +1,5 @@
 module UniformNotifier
+  attr_accessor :irc, :nick, :server, :channels
   class IRC < Base
     @receiver = nil
     @irc = nil
@@ -34,9 +35,9 @@ module UniformNotifier
     def self.connect
       @irc =  Cinch::Bot.new do
         configure do |c|
-          c.nick            = @nick
-          c.server          = @server
-          c.channels        = @channels
+          c.nick            = nick
+          c.server          = server
+          c.channels        = channels
           c.verbose         = true
         end
       end
