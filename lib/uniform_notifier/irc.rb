@@ -23,9 +23,8 @@ module UniformNotifier
       @channels = irc_information[:channels]
       @nick = irc_information[:nick]
       @password = irc_information[:password]
-      @stay_connected = irc_information[:stay_connected].nil? ? true : irc_information[:stay_connected]
 
-      connect if @stay_connected
+      connect 
     rescue LoadError
       @irc = nil
       raise NotificationError.new( 'You must install the cinch gem to use irc notification: `gem install cinch`' )
@@ -33,7 +32,7 @@ module UniformNotifier
 
     private
     def self.connect
-      @irc = bot = Cinch::Bot.new do
+      @irc =  Cinch::Bot.new do
         configure do |c|
           c.nick            = @nick
           c.server          = @server
@@ -46,8 +45,8 @@ module UniformNotifier
     end
 
     def self.notify( message )
-      connect unless @stay_connected
-      bot.msg(message)
+      connect unless @irc
+      @irc.msg(message)
     end
 
   end
