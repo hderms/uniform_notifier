@@ -49,7 +49,9 @@ module UniformNotifier
 
     def self.notify( message )
       connect unless @irc
-      @irc.msg(message)
+      @channels.each do |chann|
+      @irc.Channel(chann).msg(message)
+      end
     end
 
   end
