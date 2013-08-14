@@ -1,5 +1,5 @@
 module UniformNotifier
-  class irc < Base
+  class IRC < Base
     @receiver = nil
     @irc = nil
     @password = nil
